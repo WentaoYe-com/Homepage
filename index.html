@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>叶文涛 | 学术主页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef2f5;
+            font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #1e2a3e;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .lang-bar {
+            background: #f8fafc;
+            padding: 0.8rem 2rem;
+            text-align: right;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .lang-btn {
+            background: none;
+            border: 1px solid #cbd5e1;
+            padding: 0.3rem 1rem;
+            margin-left: 0.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            color: #1e2a3e;
+        }
+        .lang-btn.active {
+            background: #1a4a6f;
+            color: white;
+            border-color: #1a4a6f;
+        }
+        .lang-btn:hover {
+            background: #e2e8f0;
+        }
+
+        .profile {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .photo {
+            flex-shrink: 0;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 3px solid white;
+        }
+        .info {
+            flex: 1;
+        }
+        .info h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            color: #0b2b44;
+            margin-bottom: 0.3rem;
+        }
+        .info .title {
+            font-size: 1.1rem;
+            color: #2c5a7a;
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        .info .contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+            color: #3a6b8c;
+        }
+        .info .contact span {
+            background: #eef2f7;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .content {
+            padding: 2rem 2rem 2rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+        }
+
+        section h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            border-left: 5px solid #1a4a6f;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+            color: #0b2b44;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .card {
+            background: #f9fbfd;
+            border-radius: 20px;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s;
+            border: 1px solid #e9edf2;
+        }
+
+        .education-item {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+        }
+        .education-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .education-degree {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #0b2b44;
+        }
+        .education-school {
+            font-weight: 500;
+            color: #2c5a7a;
+            margin: 0.2rem 0;
+        }
+        .education-detail {
+            font-size: 0.9rem;
+            color: #5a6e85;
+        }
+
+        .honor-list, .education-list {
+            list-style: none;
+        }
+        .honor-list li, .education-list li {
+            margin-bottom: 0.6rem;
+            padding-left: 1.4rem;
+            position: relative;
+        }
+        .honor-list li::before, .education-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #1a4a6f;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .pub-category {
+            margin-top: 1.5rem;
+        }
+        .pub-category:first-of-type {
+            margin-top: 0;
+        }
+        .pub-category h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0b2b44;
+            margin-bottom: 1rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        .pub-item {
+            margin-bottom: 1.3rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .pub-authors {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        .pub-title {
+            font-weight: 600;
+            color: #0b2b44;
+            margin: 0.2rem 0;
+        }
+        .pub-venue {
+            font-size: 0.9rem;
+            color: #4a6a85;
+            font-style: italic;
+        }
+        .pub-status {
+            display: inline-block;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            margin-left: 0.8rem;
+            vertical-align: middle;
+            font-style: normal;
+            font-weight: normal;
+        }
+        .badge-published { background: #d4edda; color: #155724; }
+        .badge-under-review { background: #fff3cd; color: #856404; }
+        .badge-working { background: #e2e3e5; color: #383d41; }
+
+        footer {
+            text-align: center;
+            padding: 1.2rem;
+            background: #f8fafc;
+            font-size: 0.85rem;
+            color: #5a6e85;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @media (max-width: 640px) {
+            .profile {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.8rem;
+            }
+            .info h1 {
+                font-size: 1.9rem;
+            }
+            .content {
+                padding: 1.5rem;
+            }
+            section h2 {
+                font-size: 1.5rem;
+            }
+            .lang-bar {
+                text-align: center;
+                padding: 0.8rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="lang-bar">
+        <button class="lang-btn active" data-lang="zh">中文</button>
+        <button class="lang-btn" data-lang="en">English</button>
+    </div>
+
+    <div class="profile">
+        <img class="photo" src="photo.jpg" alt="叶文涛照片" onerror="this.style.display='none';">
+        <div class="info">
+            <h1><span data-zh="叶文涛 · Wentao Ye" data-en="Wentao Ye">叶文涛 · Wentao Ye</span></h1>
+            <div class="title"><span data-zh="博士候选人 | 机制设计 · 众包系统 · 多智能体学习" data-en="Ph.D. Candidate | Mechanism Design · Crowdsourcing · Multi-Agent Learning">博士候选人 | 机制设计 · 众包系统 · 多智能体学习</span></div>
+            <div class="contact">
+                <span>📧 wentaoye2021@outlook.com</span>
+                <span>📍 <span data-zh="中国 · 深圳" data-en="Shenzhen, China">中国 · 深圳</span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <!-- 教育背景 -->
+        <section>
+            <h2><span data-zh="📚 教育背景" data-en="📚 Education">📚 教育背景</span></h2>
+            <div class="card" style="padding: 1rem 1.5rem;">
+                <div class="education-item">
+                    <div class="education-degree"><span data-zh="博士研究生" data-en="Ph.D. Candidate">博士研究生</span></div>
+                    <div class="education-school"><span data-zh="香港中文大学（深圳）· 理工学院" data-en="The Chinese University of Hong Kong, Shenzhen · School of Science and Engineering">香港中文大学（深圳）· 理工学院</span></div>
+                    <div class="education-detail"><span data-zh="计算机与信息工程专业 · 2021 – 至今" data-en="Computer and Information Engineering · 2021 – Present">计算机与信息工程专业 · 2022 – 至今</span></div>
+                </div>
+                <div class="education-item">
+                    <div class="education-degree"><span data-zh="工学学士" data-en="Bachelor of Engineering">工学学士</span></div>
+                    <div class="education-school"><span data-zh="电子科技大学 · 英才实验学院" data-en="University of Electronic Science and Technology of China · Yingcai Honor College">电子科技大学 · 英才实验学院</span></div>
+                    <div class="education-detail"><span data-zh="计算机科学与技术专业 · 2017 – 2021" data-en="Computer Science and Technology · 2017 – 2021">计算机科学与技术专业 · 2017 – 2021</span></div>
+                    <div class="education-detail"><span data-zh="英才荣誉学院荣誉毕业生" data-en="Honorary Graduate of Yingcai Honor College">英才荣誉学院荣誉毕业生</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 荣誉奖项 -->
+        <section>
+            <h2><span data-zh="🏆 荣誉与奖项" data-en="🏆 Honors & Awards">🏆 荣誉与奖项</span></h2>
+            <div class="card">
+                <ul class="honor-list">
+                    <li data-zh="2017–2020 优秀学生奖学金（3次）" data-en="2017–2020 Excellent Student Scholarship (3 times)">2017–2020 优秀学生奖学金（3次）</li>
+                    <li data-zh="2018 牛津剑桥夏令营优秀团队成员" data-en="2018 Outstanding Team Member, Oxford & Cambridge Summer Camp">2018 牛津剑桥夏令营优秀团队成员</li>
+                    <li data-zh="2021 英才荣誉学院荣誉毕业生" data-en="2021 Yingcai Honor College Honorary Graduate">2021 英才荣誉学院荣誉毕业生</li>
+                    <li data-zh="2024 香港中文大学（深圳）驻深北莫书院最受学生欢迎奖" data-en="2024 CUHKSZ-Shenzhen MSU-BIT University Most Popular Resident Tutor Award">2024 香港中文大学（深圳）驻深北莫书院最受学生欢迎奖</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- 学术论文 (按模块分类) -->
+        <section>
+            <h2><span data-zh="📄 学术论文" data-en="📄 Publications">📄 学术论文</span></h2>
+
+            <!-- 模块1: Machine Learning -->
+            <div class="pub-category">
+                <h3><span data-zh="🤖 机器学习" data-en="🤖 Machine Learning">🤖 机器学习</span></h3>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Liu, Z., & Pan, L.</div>
+                    <div class="pub-title">Who are the celebrities? Identifying vital users on Sina Weibo microblogging network.</div>
+                    <div class="pub-venue">Knowledge-Based Systems, 231, 107438 (2021). <span class="pub-status badge-published">Published</span></div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-authors">Sun, H., Wang, J., & Ye, W.</div>
+                    <div class="pub-title">A data augmentation-based evaluation system for regional direct economic losses of storm surge disasters.</div>
+                    <div class="pub-venue">International Journal of Environmental Research and Public Health, 18(6), 2918 (2021). <span class="pub-status badge-published">Published</span></div>
+                </div>
+            </div>
+
+            <!-- 模块2: Mechanism Design for Crowdsourcing -->
+            <div class="pub-category">
+                <h3><span data-zh="🚗 众包机制设计" data-en="🚗 Mechanism Design for Crowdsourcing">🚗 众包机制设计</span></h3>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Luo, Y., Liu, B., & Huang, J.</div>
+                    <div class="pub-title">Recruiting Heterogeneous Crowdsource Vehicles for Updating a High-Definition Map.</div>
+                    <div class="pub-venue">WiOpt 2023, pp. 1-8, IEEE. <span class="pub-status badge-published">Published</span></div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2603.27109" target="_blank">[PDF]</a>
+                        <a href="None" target="_blank">[GitHub]</a>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Liu, B., Luo, Y., & Huang, J.</div>
+                    <div class="pub-title">Dual Role AoI-based Incentive Mechanism for HD Map Crowdsourcing.</div>
+                    <div class="pub-venue">AAMAS 2024, pp. 2570-2572. <span class="pub-status badge-published">Published (Extended Abstract)</span></div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2405.00353" target="_blank">[PDF]</a>
+                        <a href="None" target="_blank">[GitHub]</a>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Liu, B., Luo, Y., Huang, J.</div>
+                    <div class="pub-title">Efficient and Cost-effective Vehicle Recruitment for HD Map Crowdsourcing.</div>
+                    <div class="pub-venue">IEEE Transactions on Mobile Computing, 24(6), 7505-7518 (2025). <span class="pub-status badge-published">Published</span></div>
+                    <div class="pub-links">
+                        <a href="https://arxiv.org/abs/2603.27102" target="_blank">[PDF]</a>
+                        <a href="None" target="_blank">[GitHub]</a>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Luo, Y., Liu, B., Huang, J.</div>
+                    <div class="pub-title">Dual-Role Incentive Mechanism for HD Map Crowdsourcing.</div>
+                    <div class="pub-venue">IEEE Transactions on Mobile Computing <span class="pub-status badge-under-review">Under Second Review</span></div>
+                </div>
+            </div>
+
+            <!-- 模块3: Mechanism for LLM -->
+            <div class="pub-category">
+                <h3><span data-zh="🧠 大模型机制设计" data-en="🧠 Mechanism for LLM">🧠 大模型机制设计</span></h3>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Song, Y., Luo, Y., Liu, B., Huang, J.</div>
+                    <div class="pub-title">Mechanism Design for Agent-driven Multi-domain Recommender System.</div>
+                    <div class="pub-venue">IJCAI 2026 <span class="pub-status badge-working">Submitted Jan 2026</span></div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-authors">Ye, W., Song, Y., Luo, Y., Liu, B., Huang, J.</div>
+                    <div class="pub-title">Truthful Mechanism Design for Multi-LLM Multi-domain Recommender System.</div>
+                    <div class="pub-venue">IEEE Transactions on Networking <span class="pub-status badge-working">Working paper</span></div>
+                </div>
+            </div>
+
+            <!-- 模块4: LLM4Energy（暂无） -->
+            <div class="pub-category">
+                <h3><span data-zh="⚡ 大模型赋能能源" data-en="⚡ LLM4Energy">⚡ 大模型赋能能源</span></h3>
+                <div class="pub-item">
+                    <div class="pub-authors">Cai X., Ye, W., Meng Z., Cheng J., Dong K., Huang, J., Shen Z.</div>
+                    <div class="pub-title">LICA: A Multi-Agent Framework for Household Electricity Scheduling under Real-Time Pricing.</div>
+                    <div class="pub-venue">Applied Energy <span class="pub-status badge-under-review">Under Second Review</span></div>
+                    <div class="pub-links">
+                        <a href="None" target="_blank">[PDF]</a>
+                        <a href="https://github.com/WentaoYe-com/AI4Energy_Intelligent_Electricity_Advisor" target="_blank">[GitHub]</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 模块5: Other -->
+            <div class="pub-category">
+                <h3><span data-zh="📌 其他" data-en="📌 Other">📌 其他</span></h3>
+                <div style="color: #5a6e85; font-style: italic; padding: 0.5rem 0;">
+                    <span data-zh="暂无相关论文" data-en="No papers in this category yet">暂无相关论文</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 研究兴趣 -->
+        <section>
+            <h2><span data-zh="🔬 研究兴趣" data-en="🔬 Research Interests">🔬 研究兴趣</span></h2>
+            <div class="card" style="background: #f9fbfd;">
+                <p><span data-zh="✦ 移动众包与激励机制 · 高精地图更新 · 信息年龄优化" data-en="✦ Mobile Crowdsourcing & Incentives · HD Map Updating · Age of Information Optimization">✦ 移动众包与激励机制 · 高精地图更新 · 信息年龄优化</span></p>
+                <p><span data-zh="✦ 多智能体系统 · 机制设计理论 · 推荐系统与LLM结合" data-en="✦ Multi-Agent Systems · Mechanism Design · Recommender Systems with LLMs">✦ 多智能体系统 · 机制设计理论 · 推荐系统与LLM结合</span></p>
+                <p><span data-zh="✦ 数据驱动的决策优化 · 智慧能源调度" data-en="✦ Data-Driven Decision Optimization · Smart Energy Scheduling">✦ 数据驱动的决策优化 · 智慧能源调度</span></p>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <span data-zh="© 2026 叶文涛 · 本页面基于真实学术简历 | 更新于 2026年3月" data-en="© 2026 Wentao Ye · Based on real academic CV | Updated March 2026">© 2026 叶文涛 · 本页面基于真实学术简历 | 更新于 2026年3月</span>
+    </footer>
+</div>
+
+<script>
+    (function() {
+        const zhBtn = document.querySelector('.lang-btn[data-lang="zh"]');
+        const enBtn = document.querySelector('.lang-btn[data-lang="en"]');
+        const elements = document.querySelectorAll('[data-zh], [data-en]');
+
+        function setLanguage(lang) {
+            elements.forEach(el => {
+                const text = el.getAttribute(`data-${lang}`);
+                if (text !== null) {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.value = text;
+                    } else {
+                        el.innerText = text;
+                    }
+                }
+            });
+            if (lang === 'zh') {
+                zhBtn.classList.add('active');
+                enBtn.classList.remove('active');
+            } else {
+                enBtn.classList.add('active');
+                zhBtn.classList.remove('active');
+            }
+            localStorage.setItem('preferred_lang', lang);
+        }
+
+        zhBtn.addEventListener('click', () => setLanguage('zh'));
+        enBtn.addEventListener('click', () => setLanguage('en'));
+
+        const savedLang = localStorage.getItem('preferred_lang');
+        if (savedLang === 'en') {
+            setLanguage('en');
+        } else {
+            setLanguage('zh');
+        }
+    })();
+</script>
+</body>
+</html>
