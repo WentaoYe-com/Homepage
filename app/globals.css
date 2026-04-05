@@ -7,9 +7,9 @@
 body {
   background: #eef2f5;
   font-family: 'Segoe UI', 'Roboto', 'Noto Sans', system-ui, -apple-system, sans-serif;
-  line-height: 1.6;
+  line-height: 1.5;
   color: #1e2a3e;
-  padding: 2rem 1rem;
+  padding: 1rem;
 }
 
 .container {
@@ -23,7 +23,7 @@ body {
 
 .lang-bar {
   background: #f8fafc;
-  padding: 0.8rem 2rem;
+  padding: 0.5rem 1.5rem;
   text-align: right;
   border-bottom: 1px solid #e2e8f0;
 }
@@ -50,16 +50,16 @@ body {
 .profile {
   display: flex;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: center;
   background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  padding: 2.5rem 2rem;
+  padding: 1.5rem;
   border-bottom: 1px solid #e2e8f0;
 }
 .photo {
   flex-shrink: 0;
-  width: 150px;
-  height: 150px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
@@ -69,47 +69,47 @@ body {
   flex: 1;
 }
 .info h1 {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 600;
   color: #0b2b44;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.2rem;
 }
 .info .title {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #2c5a7a;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
 }
 .info .contact {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
+  gap: 0.8rem;
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
   color: #3a6b8c;
 }
 .info .contact span {
   background: #eef2f7;
-  padding: 0.3rem 0.8rem;
+  padding: 0.25rem 0.7rem;
   border-radius: 30px;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 .content {
-  padding: 2rem 2rem 2rem;
+  padding: 1.2rem 1.5rem 1.5rem;
 }
 
 section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 section h2 {
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 500;
-  border-left: 5px solid #1a4a6f;
-  padding-left: 1rem;
-  margin-bottom: 1.2rem;
+  border-left: 4px solid #1a4a6f;
+  padding-left: 0.8rem;
+  margin-bottom: 0.8rem;
   color: #0b2b44;
 }
 
@@ -122,15 +122,15 @@ section h2 {
 
 .card {
   background: #f9fbfd;
-  border-radius: 20px;
-  padding: 1.2rem 1.5rem;
+  border-radius: 16px;
+  padding: 1rem 1.2rem;
   transition: all 0.2s;
   border: 1px solid #e9edf2;
 }
 
 .education-item {
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.3rem;
 }
 .education-item:last-child {
   margin-bottom: 0;
@@ -138,16 +138,16 @@ section h2 {
 }
 .education-degree {
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: #0b2b44;
 }
 .education-school {
   font-weight: 500;
   color: #2c5a7a;
-  margin: 0.2rem 0;
+  margin: 0.15rem 0;
 }
 .education-detail {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #5a6e85;
 }
 
@@ -155,8 +155,8 @@ section h2 {
   list-style: none;
 }
 .honor-list li, .education-list li {
-  margin-bottom: 0.6rem;
-  padding-left: 1.4rem;
+  margin-bottom: 0.4rem;
+  padding-left: 1.2rem;
   position: relative;
 }
 .honor-list li::before, .education-list li::before {
@@ -169,35 +169,37 @@ section h2 {
 }
 
 .pub-category {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
 }
 .pub-category:first-of-type {
   margin-top: 0;
 }
 .pub-category h3 {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 500;
   color: #0b2b44;
-  margin-bottom: 1rem;
-  padding-bottom: 0.3rem;
+  margin-bottom: 0.7rem;
+  padding-bottom: 0.25rem;
   border-bottom: 2px solid #e2e8f0;
 }
 .pub-item {
-  margin-bottom: 1.3rem;
-  padding-bottom: 0.8rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.6rem;
   border-bottom: 1px solid #e2e8f0;
 }
 .pub-authors {
   font-weight: 500;
   color: #2c3e50;
+  font-size: 0.9rem;
 }
 .pub-title {
   font-weight: 600;
   color: #0b2b44;
-  margin: 0.2rem 0;
+  margin: 0.15rem 0;
+  font-size: 0.95rem;
 }
 .pub-venue {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #4a6a85;
   font-style: italic;
 }
@@ -226,9 +228,9 @@ section h2 {
 
 footer {
   text-align: center;
-  padding: 1.2rem;
+  padding: 0.8rem;
   background: #f8fafc;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: #5a6e85;
   border-top: 1px solid #e2e8f0;
 }
