@@ -5,12 +5,12 @@ import { useState, useEffect } from 'react'
 const translations = {
   zh: {
     name: '叶文涛 · Wentao Ye',
-    title: '博士候选人 | 机制设计 · 众包系统 · 多智能体学习',
+    title: '博士候选人 | 机制设计 · 多智能体系统 · 大模型系统',
     location: '中国 · 深圳',
     education: '📚 教育背景',
     phd: '博士研究生',
     phdSchool: '香港中文大学（深圳）· 理工学院',
-    phdDetail: '计算机与信息工程专业 · 2021 – 至今',
+    phdDetail: '计算机与信息工程专业 · 2021 – 2027（预计毕业）',
     bachelor: '工学学士',
     bachelorSchool: '电子科技大学 · 英才实验学院',
     bachelorDetail: '计算机科学与技术专业 · 2017 – 2021',
@@ -29,20 +29,32 @@ const translations = {
     energy: '⚡ 大模型赋能能源',
     other: '📌 其他',
     otherEmpty: '暂无相关论文',
+    patents: '💡 专利',
+    patentsList: [
+      '2024 众包建图方法、云平台及计算机可读存储介质（CN118328992A，已申请）',
+      '2023 一种众包车辆招募方法（CN117078217A，已申请）',
+      '2022 一种微博网络重要用户识别方法（CN113159976B，已授权）'
+    ],
+    service: '🎯 学术服务',
+    serviceReviewer: '✦ 审稿人：IEEE Transactions on Mobile Computing (TMC)；IEEE Transactions on Affective Computing (TAC)；AAAI Conference on Artificial Intelligence (AAAI)',
+    teaching: '📖 教学经历',
+    ta: '助教 · 2021–2026',
+    taSchool: '香港中文大学（深圳）',
+    taCourses: '课程：概率论；线性代数；网络：技术、经济与社会；机器智能与应用；嵌入式系统导论；微处理器与计算机系统；微处理器系统设计实验',
     research: '🔬 研究兴趣',
-    research1: '✦ 移动众包与激励机制 · 高精地图更新 · 信息年龄优化',
-    research2: '✦ 多智能体系统 · 机制设计理论 · 推荐系统与LLM结合',
-    research3: '✦ 数据驱动的决策优化 · 智慧能源调度',
-    footer: '© 2026 叶文涛 · 本页面基于真实学术简历 | 更新于 2026年3月'
+    research1: '✦ 机制设计 · 多智能体系统',
+    research2: '✦ 大模型系统 · 网络优化',
+    research3: '✦ 面向网络化与能源系统的 AI',
+    footer: '© 2026 叶文涛 · 本页面基于真实学术简历 | 更新于 2026年9月'
   },
   en: {
     name: 'Wentao Ye',
-    title: 'Ph.D. Candidate | Mechanism Design · Crowdsourcing · Multi-Agent Learning',
+    title: 'Ph.D. Candidate | Mechanism Design · Multi-Agent Systems · LLM Systems',
     location: 'Shenzhen, China',
     education: '📚 Education',
     phd: 'Ph.D. Candidate',
     phdSchool: 'The Chinese University of Hong Kong, Shenzhen · School of Science and Engineering',
-    phdDetail: 'Computer and Information Engineering · 2021 – Present',
+    phdDetail: 'Computer and Information Engineering · 2021 – 2027 (Expected)',
     bachelor: 'Bachelor of Engineering',
     bachelorSchool: 'University of Electronic Science and Technology of China · Yingcai Honor College',
     bachelorDetail: 'Computer Science and Technology · 2017 – 2021',
@@ -61,11 +73,23 @@ const translations = {
     energy: '⚡ LLM4Energy',
     other: '📌 Other',
     otherEmpty: 'No papers in this category yet',
+    patents: '💡 Patents',
+    patentsList: [
+      '2024 Crowdsourced Mapping Method, Cloud Platform, and Computer-Readable Storage Medium (CN118328992A, filed)',
+      '2023 A Recruiting Method for Crowdsourced Vehicles (CN117078217A, filed)',
+      '2022 A Method for Identifying Important Users in Weibo Networks (CN113159976B, granted)'
+    ],
+    service: '🎯 Professional Service',
+    serviceReviewer: '✦ Reviewer: IEEE Transactions on Mobile Computing (TMC); IEEE Transactions on Affective Computing (TAC); AAAI Conference on Artificial Intelligence (AAAI)',
+    teaching: '📖 Teaching Experience',
+    ta: 'Teaching Assistant · 2021–2026',
+    taSchool: 'The Chinese University of Hong Kong, Shenzhen',
+    taCourses: 'Courses: Probability Theory; Linear Algebra; Networks: Technology, Economics and Society; Machine Intelligence and Applications; Introduction to Embedded Systems; Microprocessors and Computer Systems; Microprocessor System Design Laboratory',
     research: '🔬 Research Interests',
-    research1: '✦ Mobile Crowdsourcing & Incentives · HD Map Updating · Age of Information Optimization',
-    research2: '✦ Multi-Agent Systems · Mechanism Design · Recommender Systems with LLMs',
-    research3: '✦ Data-Driven Decision Optimization · Smart Energy Scheduling',
-    footer: '© 2026 Wentao Ye · Based on real academic CV | Updated March 2026'
+    research1: '✦ Mechanism Design · Multi-Agent Systems',
+    research2: '✦ LLM Systems · Network Optimization',
+    research3: '✦ AI for Networked and Energy Systems',
+    footer: '© 2026 Wentao Ye · Based on real academic CV | Updated September 2026'
   }
 }
 
@@ -188,7 +212,7 @@ export default function Home() {
             <div className="pub-item">
               <div className="pub-authors">Ye, W., Luo, Y., Liu, B., Huang, J.</div>
               <div className="pub-title">Dual-Role Incentive Mechanism for HD Map Crowdsourcing.</div>
-              <div className="pub-venue">IEEE Transactions on Mobile Computing <span className="pub-status badge-under-review">Under Second Review</span></div>
+              <div className="pub-venue">IEEE Transactions on Mobile Computing <span className="pub-status badge-published">Accepted (to appear)</span></div>
             </div>
           </div>
 
@@ -196,13 +220,18 @@ export default function Home() {
             <h3>{t.llm}</h3>
             <div className="pub-item">
               <div className="pub-authors">Ye, W., Song, Y., Luo, Y., Liu, B., Huang, J.</div>
-              <div className="pub-title">Mechanism Design for Agent-driven Multi-domain Recommender System.</div>
-              <div className="pub-venue">IJCAI 2026 <span className="pub-status badge-working">Submitted Jan 2026</span></div>
+              <div className="pub-title">Mechanism Design for Agent-driven Multi-domain Recommender Systems.</div>
+              <div className="pub-venue">AAAI 2027 <span className="pub-status badge-under-review">Under Review</span></div>
             </div>
             <div className="pub-item">
               <div className="pub-authors">Ye, W., Song, Y., Luo, Y., Liu, B., Huang, J.</div>
               <div className="pub-title">Truthful Mechanism Design for Multi-LLM Multi-domain Recommender System.</div>
               <div className="pub-venue">IEEE Transactions on Networking <span className="pub-status badge-working">Working paper</span></div>
+            </div>
+            <div className="pub-item">
+              <div className="pub-authors">Ye, W., & Huang, J.</div>
+              <div className="pub-title">AdaWait: Adaptive Stopping for Quality-Latency-Optimized Asynchronous Token-Level LLM Ensembling.</div>
+              <div className="pub-venue">AAAI 2027 <span className="pub-status badge-under-review">Under Review</span></div>
             </div>
           </div>
 
@@ -211,7 +240,7 @@ export default function Home() {
             <div className="pub-item">
               <div className="pub-authors">Cai X., Ye, W., Meng Z., Cheng J., Dong K., Huang, J., Shen Z.</div>
               <div className="pub-title">LICA: A Multi-Agent Framework for Household Electricity Scheduling under Real-Time Pricing.</div>
-              <div className="pub-venue">Applied Energy <span className="pub-status badge-under-review">Under Second Review</span></div>
+              <div className="pub-venue">Applied Energy (2026). <span className="pub-status badge-published">Published</span></div>
               <div className="pub-links">
                 <a href="https://github.com/WentaoYe-com/AI4Energy_Intelligent_Electricity_Advisor" target="_blank" rel="noopener noreferrer">[GitHub]</a>
               </div>
@@ -222,6 +251,35 @@ export default function Home() {
             <h3>{t.other}</h3>
             <div style={{ color: '#5a6e85', fontStyle: 'italic', padding: '0.5rem 0' }}>
               {t.otherEmpty}
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2>{t.patents}</h2>
+          <div className="card">
+            <ul className="honor-list">
+              {t.patentsList.map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2>{t.service}</h2>
+          <div className="card" style={{ background: '#f9fbfd' }}>
+            <p>{t.serviceReviewer}</p>
+          </div>
+        </section>
+
+        <section>
+          <h2>{t.teaching}</h2>
+          <div className="card">
+            <div className="education-item">
+              <div className="education-degree">{t.ta}</div>
+              <div className="education-school">{t.taSchool}</div>
+              <div className="education-detail">{t.taCourses}</div>
             </div>
           </div>
         </section>
