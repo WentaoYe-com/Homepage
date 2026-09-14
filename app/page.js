@@ -14,12 +14,12 @@ const translations = {
     bachelor: '工学学士',
     bachelorSchool: '电子科技大学 · 英才实验学院',
     bachelorDetail: '计算机科学与技术专业 · 2017 – 2021',
-    honorGraduate: '英才荣誉学院荣誉毕业生',
+    honorGraduate: '英才实验学院荣誉毕业生',
     honors: '🏆 荣誉与奖项',
     honorsList: [
       '2017–2020 优秀学生奖学金（3次）',
       '2018 牛津剑桥夏令营优秀团队成员',
-      '2021 英才荣誉学院荣誉毕业生',
+      '2021 英才实验学院荣誉毕业生',
       '2024 香港中文大学（深圳）驻深北莫书院最受学生欢迎奖'
     ],
     publications: '📄 学术论文',
